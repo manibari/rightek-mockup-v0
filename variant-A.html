@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rightek — Variant A 監控室深夜</title>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.bunny.net/css?family=dm-sans:400,500,700|jetbrains-mono:400,500" rel="stylesheet">
+<style>
+  :root {
+    --primary-azure: #0B5FBF;
+    --primary-azure-deep: #083F80;
+    --accent-cyan: #00C4FF;
+    --surface-dark: #0F1419;
+    --surface-elevated: #1A1F26;
+    --text-primary: #F5F7FA;
+    --text-secondary: #A8B2C0;
+    --text-muted: #7B8794;
+    --border-subtle: #2A3038;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--surface-dark);
+    color: var(--text-primary);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at 78% 32%, rgba(0,196,255,0.08) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+    background-size: cover, 4px 4px;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 64px;
+    border-bottom: 1px solid var(--border-subtle);
+    backdrop-filter: blur(8px);
+  }
+  .wordmark {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+  }
+  .wordmark span.r { color: var(--accent-cyan); }
+  nav ul { display: flex; gap: 32px; list-style: none; }
+  nav a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 150ms ease-out;
+  }
+  nav a:hover { color: var(--accent-cyan); }
+  .hero {
+    display: grid;
+    grid-template-columns: 58% 42%;
+    gap: 56px;
+    padding: 96px 64px;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .hero-copy h1 {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .hero-copy .sub {
+    font-size: 19px;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+    max-width: 540px;
+    line-height: 1.55;
+  }
+  .metric {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    margin-bottom: 36px;
+    padding: 18px 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    gap: 48px;
+    letter-spacing: 0.04em;
+  }
+  .metric .label { color: var(--text-muted); text-transform: uppercase; margin-right: 8px; }
+  .metric .value { color: var(--accent-cyan); font-weight: 500; }
+  .cta {
+    display: inline-block;
+    background: var(--primary-azure);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 150ms ease-out;
+  }
+  .cta:hover { background: var(--primary-azure-deep); }
+  .diagram {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 32px;
+    position: relative;
+    aspect-ratio: 1.05;
+  }
+  .diagram-label {
+    position: absolute;
+    top: 18px;
+    left: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .diagram-status {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent-cyan);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .diagram-status::before {
+    content: '●';
+    margin-right: 6px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .diagram svg {
+    width: 100%;
+    height: calc(100% - 32px);
+    margin-top: 32px;
+  }
+  .concept-tag {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-subtle);
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .concept-tag b { color: var(--accent-cyan); }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="wordmark"><span class="r">R</span>ightek</div>
+    <ul>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Cases</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>半導體 / 製造業的<br>Azure AI 整合夥伴</h1>
+      <p class="sub">從資料整合、Azure ML 到 Power BI 智慧儀表板，端到端落地</p>
+      <div class="metric">
+        <div><span class="label">vs Commercial</span><span class="value">&gt;100% MATCH</span></div>
+        <div><span class="label">Top-5 命中率</span><span class="value">100%</span></div>
+      </div>
+      <a href="#" class="cta">聯絡我們</a>
+    </div>
+    <div class="diagram">
+      <div class="diagram-label">Azure Stack</div>
+      <div class="diagram-status">Live</div>
+      <svg viewBox="0 0 400 360" fill="none" style="overflow:visible">
+        <line x1="100" y1="100" x2="200" y2="180" stroke="#00C4FF" stroke-width="1.2" opacity="0.5"/>
+        <line x1="300" y1="100" x2="200" y2="180" stroke="#00C4FF" stroke-width="1.2" opacity="0.5"/>
+        <line x1="200" y1="220" x2="100" y2="280" stroke="#00C4FF" stroke-width="1.2" opacity="0.5"/>
+        <line x1="200" y1="220" x2="300" y2="280" stroke="#00C4FF" stroke-width="1.2" opacity="0.5"/>
+        <g transform="translate(60 48)">
+          <rect x="0" y="0" width="80" height="64" fill="rgba(0,196,255,0.06)" stroke="rgba(0,196,255,0.3)" stroke-width="0.8" rx="4"/>
+          <image href="assets/icons/03513-icon-service-AI-Studio.svg" x="22" y="6" width="36" height="36"/>
+          <text x="40" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#A8B2C0" letter-spacing="0.06em">AI STUDIO</text>
+        </g>
+        <g transform="translate(260 48)">
+          <rect x="0" y="0" width="80" height="64" fill="rgba(0,196,255,0.06)" stroke="rgba(0,196,255,0.3)" stroke-width="0.8" rx="4"/>
+          <image href="assets/icons/00606-icon-service-Azure-Synapse-Analytics.svg" x="22" y="6" width="36" height="36"/>
+          <text x="40" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#A8B2C0" letter-spacing="0.06em">SYNAPSE</text>
+        </g>
+        <g transform="translate(160 152)">
+          <rect x="0" y="0" width="80" height="64" fill="rgba(0,196,255,0.12)" stroke="rgba(0,196,255,0.5)" stroke-width="1" rx="4"/>
+          <image href="assets/icons/10126-icon-service-Data-Factories.svg" x="22" y="6" width="36" height="36"/>
+          <text x="40" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#00C4FF" letter-spacing="0.06em">DATA FACTORY</text>
+        </g>
+        <g transform="translate(60 248)">
+          <rect x="0" y="0" width="80" height="64" fill="rgba(0,196,255,0.06)" stroke="rgba(0,196,255,0.3)" stroke-width="0.8" rx="4"/>
+          <image href="assets/icons/03332-icon-service-Power-BI-Embedded.svg" x="22" y="6" width="36" height="36"/>
+          <text x="40" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#A8B2C0" letter-spacing="0.06em">POWER BI</text>
+        </g>
+        <g transform="translate(260 248)">
+          <rect x="0" y="0" width="80" height="64" fill="rgba(0,196,255,0.06)" stroke="rgba(0,196,255,0.3)" stroke-width="0.8" rx="4"/>
+          <image href="assets/icons/03438-icon-service-Azure-OpenAI.svg" x="22" y="6" width="36" height="36"/>
+          <text x="40" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#A8B2C0" letter-spacing="0.06em">OPENAI</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+  <div class="concept-tag"><b>Variant A</b> · 監控室深夜</div>
+</body>
+</html>

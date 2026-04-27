@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rightek — Variant B 技術藍圖</title>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.bunny.net/css?family=dm-sans:400,500,700|jetbrains-mono:400,500" rel="stylesheet">
+<style>
+  :root {
+    --primary-azure: #0B5FBF;
+    --primary-azure-deep: #083F80;
+    --accent-cyan: #00C4FF;
+    --surface-dark: #0F1419;
+    --surface-elevated-dark: #1A1F26;
+    --surface-light: #F5F7FA;
+    --surface-light-alt: #FFFFFF;
+    --text-primary-dark: #F5F7FA;
+    --text-primary-light: #0F1419;
+    --text-secondary-dark: #A8B2C0;
+    --text-secondary-light: #3B4252;
+    --text-muted: #7B8794;
+    --border-dark: #2A3038;
+    --border-light: #D8DEE9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .left {
+    background: var(--surface-dark);
+    color: var(--text-primary-dark);
+    padding: 48px 64px;
+    display: flex;
+    flex-direction: column;
+  }
+  .right {
+    background: var(--surface-light);
+    color: var(--text-primary-light);
+    padding: 48px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .wordmark {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    margin-bottom: 80px;
+  }
+  .wordmark span.r { color: var(--accent-cyan); }
+  h1 {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .sub {
+    font-size: 18px;
+    color: var(--text-secondary-dark);
+    margin-bottom: 48px;
+    max-width: 460px;
+    line-height: 1.55;
+  }
+  .pull-quote {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--text-primary-dark);
+    border-left: 4px solid var(--accent-cyan);
+    padding-left: 24px;
+    margin-bottom: 48px;
+    max-width: 480px;
+  }
+  .pull-quote-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    margin-top: 12px;
+    text-transform: uppercase;
+  }
+  .cta {
+    display: inline-block;
+    background: var(--primary-azure);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 150ms ease-out;
+    align-self: flex-start;
+  }
+  .cta:hover { background: var(--primary-azure-deep); }
+  .diagram-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .arch-svg { width: 100%; max-width: 480px; }
+  .arch-svg .node { fill: white; stroke: #0F1419; stroke-width: 1; }
+  .arch-svg .node-emphasis { fill: rgba(0,196,255,0.06); stroke: #0F1419; stroke-width: 1.5; }
+  .arch-svg text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    fill: #0F1419;
+  }
+  .arch-svg .label-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    fill: #7B8794;
+    letter-spacing: 0.06em;
+  }
+  .arch-svg line { stroke: #00C4FF; stroke-width: 2; }
+  .concept-tag {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--surface-elevated-dark);
+    border: 1px solid var(--border-dark);
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .concept-tag b { color: var(--accent-cyan); }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="wordmark"><span class="r">R</span>ightek</div>
+    <h1>半導體 / 製造業的<br>Azure AI 整合夥伴</h1>
+    <p class="sub">從資料整合、Azure ML 到 Power BI 智慧儀表板，端到端落地</p>
+    <div class="pull-quote">
+      以 6 條 rule 達成商用工具<br>&gt;100% match、Top-5 命中率 100%
+      <div class="pull-quote-meta">— 半導體製造業實證</div>
+    </div>
+    <a href="#" class="cta">聯絡我們</a>
+  </div>
+  <div class="right">
+    <div class="diagram-title">Azure Integration Stack</div>
+    <svg class="arch-svg" viewBox="0 0 400 360">
+      <line x1="180" y1="28" x2="220" y2="28"/>
+      <line x1="200" y1="56" x2="200" y2="120"/>
+      <line x1="200" y1="176" x2="90" y2="240"/>
+      <line x1="200" y1="176" x2="310" y2="240"/>
+      <line x1="180" y1="268" x2="220" y2="268"/>
+      <rect class="node" x="0" y="0" width="180" height="56" rx="2"/>
+      <text x="90" y="34" text-anchor="middle">Data Factory</text>
+      <rect class="node" x="220" y="0" width="180" height="56" rx="2"/>
+      <text x="310" y="34" text-anchor="middle">Synapse</text>
+      <rect class="node-emphasis" x="110" y="120" width="180" height="56" rx="2"/>
+      <text x="200" y="154" text-anchor="middle">Azure ML Studio</text>
+      <rect class="node" x="0" y="240" width="180" height="56" rx="2"/>
+      <text x="90" y="274" text-anchor="middle">Power BI</text>
+      <rect class="node" x="220" y="240" width="180" height="56" rx="2"/>
+      <text x="310" y="274" text-anchor="middle">Azure OpenAI</text>
+      <text class="label-mono" x="0" y="328">↓ END-TO-END DATA FLOW</text>
+    </svg>
+  </div>
+  <div class="concept-tag"><b>Variant B</b> · 技術藍圖</div>
+</body>
+</html>
