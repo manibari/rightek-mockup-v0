@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case Studies — Rightek 正傑科技</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .case-section { margin-bottom: 96px; }
+  .case-section:last-of-type { margin-bottom: 0; }
+  .case-header { border-top: 2px solid var(--primary-azure); padding-top: 24px; margin-bottom: 32px; }
+  .case-header .case-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-cyan);
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+  .case-header h2 { font-size: 36px; margin-bottom: 12px; line-height: 1.2; }
+  .case-header .lead { font-size: 17px; color: var(--text-secondary); max-width: 720px; }
+  .case-block { margin-bottom: 32px; max-width: 760px; }
+  .case-block h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-left: 16px;
+    border-left: 4px solid var(--accent-cyan);
+  }
+  .case-block p, .case-block ul { color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+  .case-block ul { padding-left: 20px; list-style: disc; margin: 12px 0; }
+  .case-block ul li { margin-bottom: 6px; }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface-soft);
+    border-radius: 8px;
+  }
+  .impact-item { border-left: 2px solid var(--accent-cyan); padding-left: 16px; }
+  .impact-value {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--primary-azure);
+    line-height: 1;
+    margin-bottom: 4px;
+    font-feature-settings: 'tnum';
+  }
+  .impact-label { font-size: 11px; color: var(--text-secondary); letter-spacing: 0.04em; }
+  .stack-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .stack-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    border: 1px solid var(--border-soft);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+    letter-spacing: 0.04em;
+  }
+  .stack-pill img { width: 16px; height: 16px; }
+  @media (max-width: 768px) {
+    .impact-grid { grid-template-columns: repeat(2, 1fr); padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="wordmark"><span class="r">R</span>ightek</a>
+  <div class="nav-links">
+    <a href="services.html">Services</a>
+    <a href="cases.html" class="active">Cases</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="nav-cta">聯絡我們</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="tag">Case Studies</span>
+    <h1 style="margin-top:24px">方法論已在這些產業驗證</h1>
+    <p class="lead">兩個匿名化實證 — 半導體製造業 PCB DFM、半導體設計公司良率資料平台。客戶名稱因 NDA 保密；產業、規模、技術深度公開。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="case-section" id="pcb-dfm">
+      <div class="case-header">
+        <div class="case-meta">CASE 01 · 半導體製造業 · PCB DFM</div>
+        <h2>以 AI Rule Engine 強化 PCB 可製造性檢查</h2>
+        <p class="lead">客戶為台灣上市櫃半導體製造業，PE / Layout 設計團隊每日處理大量 PCB Layout DFM 規則檢查。</p>
+      </div>
+
+      <div class="case-block">
+        <h3>痛點</h3>
+        <p>客戶長期使用主流商用 DFM 驗證工具（位於 PCB 設計驗證流程的最後一個步驟），常見痛點：</p>
+        <ul>
+          <li><strong>Rule 客製成本高</strong>：商用工具內建 rule 為黑盒，內部 spec 與工具預設經常需要 workaround。</li>
+          <li><strong>重複違規多</strong>：同一 component 違反多條相關 rule 時產出大量重複條目，PE 需手動去重。</li>
+          <li><strong>工作流卡點</strong>：6 步驟工作流的最後規則檢查耗時且品質不穩。</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <h3>解決方案</h3>
+        <p>提供 <strong>AI Rule Engine + Semantic Dedup</strong>，嵌入既有工作流最後一步作為內建規則的替換件，前面 5 步保留。7 模組 Python pipeline 含 Parser / Enricher / Checklist / Engine / Visualizer / Exporter / Search，含互動式 review canvas 支援 zoom 1×–40× 與 click-to-zoom 違規定位。</p>
+      </div>
+
+      <div class="case-block">
+        <h3>量化成效</h3>
+        <div class="impact-grid">
+          <div class="impact-item">
+            <div class="impact-value">&gt;100%</div>
+            <div class="impact-label">vs 商用工具 match</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-value">100%</div>
+            <div class="impact-label">Top-5 命中率</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-value">6</div>
+            <div class="impact-label">Active rule 數</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-value">9/9</div>
+            <div class="impact-label">E2E test pass</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <h3>技術深度</h3>
+        <ul>
+          <li>幾何運算自研：silk-to-pad gap（含筆劃寬度補正）、arc-point distance（chord + circle-distance min）、cursor-anchored zoom（rAF throttle 60fps）。</li>
+          <li>線寬解碼修正：標準 ODB++ 線寬參數為微米而非毫米，自研解碼層補正。</li>
+          <li>Component 分類幾何 heuristic：CSP body ≤ 1mm + pitch ≤ 0.5mm，補 part_name 沒 token 的真 CSP。</li>
+          <li>Governance / Waiver 機制：YAML-driven rule 豁免（條件 + approver + review_date），合規可追溯。</li>
+        </ul>
+      </div>
+
+      <div class="pull-quote">
+        以 6 條 rule 達成商用工具 &gt;100% match、Top-5 命中率 100%。多餘 7 筆違規經 governance review 確認為真實風險。
+        <div class="pull-quote-meta">— 半導體製造業實證</div>
+      </div>
+
+      <div class="case-block">
+        <h3>技術棧</h3>
+        <div class="stack-row">
+          <span class="stack-pill">Python 3.11</span>
+          <span class="stack-pill">ODB++ Parser (自研)</span>
+          <span class="stack-pill">Geometry Library (自研)</span>
+          <span class="stack-pill">HTML / CSS / JS Canvas</span>
+          <span class="stack-pill">Playwright E2E</span>
+          <span class="stack-pill">pytest</span>
+          <span class="stack-pill mono">Optional: Azure VM + Storage + OpenAI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-section" id="yield-platform">
+      <div class="case-header">
+        <div class="case-meta">CASE 02 · 半導體設計公司 · 良率資料平台</div>
+        <h2>端到端 Azure AI 良率資料整合平台</h2>
+        <p class="lead">客戶為台灣上市櫃半導體設計公司，PE / TE / FE 團隊長期處理多家委外製造夥伴的良率資料。</p>
+      </div>
+
+      <div class="case-block">
+        <h3>痛點</h3>
+        <p>無自有產線的設計公司，量產追蹤上常見：</p>
+        <ul>
+          <li><strong>委外夥伴多元</strong>：多家委外製造夥伴提供週報，格式不一、命名不統一。</li>
+          <li><strong>資料散在各角落</strong>：PE / TE / FE 各自下載 → Excel 整理；無單一 source of truth。</li>
+          <li><strong>無端到端 yield 視角</strong>：上下游良率事件無法 join，root-cause 分析仰賴人工拼接。</li>
+          <li><strong>資安要求</strong>：資料不出客戶網段、需完整存取追蹤。</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <h3>解決方案</h3>
+        <p>三層架構，採 Azure 全家桶部署：</p>
+        <ul>
+          <li><strong>Layer 1 — 基礎建設層</strong>：Azure VM / Azure SQL / SFTP Gateway / Network Security。</li>
+          <li><strong>Layer 2 — 資料整合層</strong>：Azure Data Factory ETL（命名標準化、跨夥伴資料整合）→ Azure SQL / Synapse。</li>
+          <li><strong>Layer 3 — 智慧看板層</strong>：Power BI Premium（PE / TE / FE / 主管多 persona） + Azure OpenAI 自然語言查詢。</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <h3>量化成效</h3>
+        <div class="impact-grid">
+          <div class="impact-item">
+            <div class="impact-value">5+</div>
+            <div class="impact-label">委外夥伴整合</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-value">100%</div>
+            <div class="impact-label">命名標準化自動</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-value">萬列</div>
+            <div class="impact-label">/月 ETL 量級</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-value">E2E</div>
+            <div class="impact-label">資料 → 智慧 落地</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <h3>技術深度</h3>
+        <ul>
+          <li><strong>Schema 嚴謹分離</strong>：將同一夥伴的不同角色（封裝 / 測試）拆成獨立欄位，避免行業慣用語混淆。</li>
+          <li><strong>命名標準化函數庫</strong>：所有 join 共用同一套 key，避免「測試場 vs 測試廠」這類人為差異累積成 silent data corruption。</li>
+          <li><strong>Fail-loud 原則</strong>：欄位缺失印 warning，不靜默通過。</li>
+          <li><strong>多 SOT 視角設計</strong>：以原始資料為真值，二手摘要僅作對照。</li>
+          <li><strong>存取治理</strong>：session 限時 / idle 限時 / IP 白名單 / 多跳 bastion 架構。</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <h3>技術棧（Azure 全家桶）</h3>
+        <div class="stack-row">
+          <span class="stack-pill"><img src="assets/icons/10126-icon-service-Data-Factories.svg" alt="">Data Factory</span>
+          <span class="stack-pill"><img src="assets/icons/00606-icon-service-Azure-Synapse-Analytics.svg" alt="">Synapse Analytics</span>
+          <span class="stack-pill"><img src="assets/icons/03513-icon-service-AI-Studio.svg" alt="">Azure ML</span>
+          <span class="stack-pill"><img src="assets/icons/03332-icon-service-Power-BI-Embedded.svg" alt="">Power BI Premium</span>
+          <span class="stack-pill"><img src="assets/icons/03438-icon-service-Azure-OpenAI.svg" alt="">Azure OpenAI</span>
+          <span class="stack-pill mono">VM · NSG · Private Endpoint</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-soft" style="text-align:center;">
+  <div class="container">
+    <h2 style="margin-bottom:16px">你的案件想要怎樣的方法論？</h2>
+    <p style="color:var(--text-secondary); max-width:540px; margin:0 auto 32px;">告訴我你的產業、痛點、現況。30 分鐘內給你一份初步方法論建議。</p>
+    <a href="contact.html" class="btn btn-primary">聯絡我們</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="wordmark"><span class="r" style="color:var(--accent-cyan)">R</span>ightek</div>
+      <p>正傑科技 — 半導體 / 製造業的 Microsoft Azure AI 整合夥伴。</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">AI / Azure 整合方案</a></li>
+        <li><a href="services.html#pcb">PCB Layout 設計</a></li>
+        <li><a href="services.html#stack">技術棧</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cases.html">Case Studies</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:hello@phyra.uk">hello@phyra.uk</a></li>
+        <li><a href="#" onclick="return false">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Rightek 正傑科技</span>
+    <span class="mono">Built on Azure stack</span>
+  </div>
+</footer>
+
+</body>
+</html>

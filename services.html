@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Services — Rightek 正傑科技</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .pillar-section {
+    margin-bottom: 80px;
+  }
+  .pillar-header {
+    border-top: 2px solid var(--primary-azure);
+    padding-top: 24px;
+    margin-bottom: 32px;
+    max-width: 720px;
+  }
+  .pillar-header .pillar-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-cyan);
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+  .pillar-header h2 { margin-bottom: 12px; }
+  .pillar-header p { color: var(--text-secondary); font-size: 17px; }
+  .sub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .sub-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .stack-band {
+    background: var(--surface-soft);
+    padding: 64px;
+    border-radius: 12px;
+    margin-top: 48px;
+  }
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .stack-item {
+    background: white;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stack-item img { width: 36px; height: 36px; margin: 0 auto 8px; }
+  .stack-item .name { font-size: 12px; font-weight: 600; }
+  .stack-item .meta { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-muted); margin-top: 4px; letter-spacing: 0.06em; }
+  .pcb-section {
+    background: var(--surface-soft);
+    padding: 48px 64px;
+    border-radius: 12px;
+    border-left: 4px solid var(--text-muted);
+  }
+  .pcb-section h3 { margin-bottom: 12px; color: var(--text-secondary); }
+  .pcb-section p { color: var(--text-secondary); max-width: 720px; }
+  @media (max-width: 768px) {
+    .sub-grid, .sub-grid.cols-3, .stack-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="wordmark"><span class="r">R</span>ightek</a>
+  <div class="nav-links">
+    <a href="services.html" class="active">Services</a>
+    <a href="cases.html">Cases</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="nav-cta">聯絡我們</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="tag">Services</span>
+    <h1 style="margin-top:24px">我們做什麼</h1>
+    <p class="lead">主軸：Microsoft Azure AI 整合方案，端到端落地。次線：PCB Layout 設計（Cadence Allegro，小板、客製硬體）。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="pillar-section">
+      <div class="pillar-header">
+        <div class="pillar-num">01 / 主軸</div>
+        <h2>AI 應用方案 — Azure 整合</h2>
+        <p>從資料整合、機器學習、智慧儀表板到 LLM Agent，依產業需求量身打造，落地半導體 / 製造業現場。</p>
+      </div>
+
+      <div class="sub-grid cols-3">
+        <div class="svc-card featured">
+          <img class="svc-icon" src="assets/icons/10126-icon-service-Data-Factories.svg" alt="Data Factory">
+          <div class="svc-name">資料整合 — Data Pipeline</div>
+          <div class="svc-meta">AZURE DATA FACTORY · SYNAPSE</div>
+          <p class="svc-desc">將多家委外夥伴 / 多廠多步驟良率資料以標準化 ETL pipeline 整合，輸出單一 SOT；冪等、可稽核、IP 白名單。</p>
+        </div>
+        <div class="svc-card">
+          <img class="svc-icon" src="assets/icons/03513-icon-service-AI-Studio.svg" alt="ML Studio">
+          <div class="svc-name">機器學習 — Custom Models</div>
+          <div class="svc-meta">AZURE ML STUDIO</div>
+          <p class="svc-desc">客製領域模型（yield 分析、製程異常、Layout DFM rule engine），訓練、部署、版控全流程在 Azure ML 上跑。</p>
+        </div>
+        <div class="svc-card">
+          <img class="svc-icon" src="assets/icons/03332-icon-service-Power-BI-Embedded.svg" alt="Power BI">
+          <div class="svc-name">智慧儀表板 — BI</div>
+          <div class="svc-meta">POWER BI PREMIUM</div>
+          <p class="svc-desc">PE / TE / FE / 主管多 persona 共用同一資料層，看板含 row-level security、行動化、自動 refresh。</p>
+        </div>
+        <div class="svc-card featured" style="grid-column: span 1;">
+          <img class="svc-icon" src="assets/icons/03438-icon-service-Azure-OpenAI.svg" alt="OpenAI">
+          <div class="svc-name">智慧 Agent — LLM</div>
+          <div class="svc-meta">AZURE OPENAI SERVICE</div>
+          <p class="svc-desc">Natural language query 接資料層；語意搜尋、自動歸納違規 pattern、文件問答 — Azure OpenAI 在客戶網段內。</p>
+        </div>
+        <div class="svc-card" style="grid-column: span 2; display:flex; align-items:center;">
+          <div>
+            <div class="svc-name" style="margin-bottom:8px;">完整 Azure 雲端部署</div>
+            <p class="svc-desc">VM / VNet / Network Security / Private Endpoint / IP 白名單 / 多跳 bastion 架構 — 滿足客戶資安合規。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-section" id="pcb">
+      <div class="pillar-header">
+        <div class="pillar-num">02 / 次線</div>
+        <h2>PCB Layout 設計</h2>
+        <p>Cadence Allegro 為主，承接小板、客製化硬體開發案。可結合主軸 AI Rule Engine 提供端到端 Layout → DFM 驗證 → 製造服務。</p>
+      </div>
+      <div class="pcb-section">
+        <h3>淡化處理 / 補充能力</h3>
+        <p>本服務作為次線提供，不主推；案件規模較小、客製化深度高。如需詳談請於聯絡時備註「PCB Layout」需求。</p>
+      </div>
+    </div>
+
+    <div class="pillar-section" id="stack">
+      <div class="pillar-header">
+        <div class="pillar-num">03 / 技術棧</div>
+        <h2>Microsoft Azure 全家桶</h2>
+        <p>所有方案以 Azure 標準服務為部署基底，避免 vendor lock-in 同時享有 Microsoft 企業級 SLA。</p>
+      </div>
+      <div class="stack-band">
+        <div class="stack-grid">
+          <div class="stack-item">
+            <img src="assets/icons/10126-icon-service-Data-Factories.svg" alt="Data Factory">
+            <div class="name">Data Factory</div>
+            <div class="meta">ETL</div>
+          </div>
+          <div class="stack-item">
+            <img src="assets/icons/00606-icon-service-Azure-Synapse-Analytics.svg" alt="Synapse">
+            <div class="name">Synapse</div>
+            <div class="meta">DW</div>
+          </div>
+          <div class="stack-item">
+            <img src="assets/icons/03513-icon-service-AI-Studio.svg" alt="AI Studio">
+            <div class="name">ML / AI Studio</div>
+            <div class="meta">MODELS</div>
+          </div>
+          <div class="stack-item">
+            <img src="assets/icons/03332-icon-service-Power-BI-Embedded.svg" alt="Power BI">
+            <div class="name">Power BI</div>
+            <div class="meta">BI</div>
+          </div>
+          <div class="stack-item">
+            <img src="assets/icons/03438-icon-service-Azure-OpenAI.svg" alt="OpenAI">
+            <div class="name">Azure OpenAI</div>
+            <div class="meta">LLM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-soft" style="text-align:center;">
+  <div class="container">
+    <h2 style="margin-bottom:16px">想評估你的 Azure 整合方案？</h2>
+    <p style="color:var(--text-secondary); max-width:540px; margin:0 auto 32px;">把你的需求寫過來，30 分鐘內回覆初步可行性 + 預估範圍。</p>
+    <a href="contact.html" class="btn btn-primary">聯絡我們</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="wordmark"><span class="r" style="color:var(--accent-cyan)">R</span>ightek</div>
+      <p>正傑科技 — 半導體 / 製造業的 Microsoft Azure AI 整合夥伴。</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">AI / Azure 整合方案</a></li>
+        <li><a href="services.html#pcb">PCB Layout 設計</a></li>
+        <li><a href="services.html#stack">技術棧</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cases.html">Case Studies</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:hello@phyra.uk">hello@phyra.uk</a></li>
+        <li><a href="#" onclick="return false">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Rightek 正傑科技</span>
+    <span class="mono">Built on Azure stack</span>
+  </div>
+</footer>
+
+</body>
+</html>

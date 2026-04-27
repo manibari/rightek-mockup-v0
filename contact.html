@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Rightek 正傑科技</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    max-width: var(--container-max);
+  }
+  .contact-form {
+    background: white;
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 40px;
+  }
+  .contact-form h2 { font-size: 28px; margin-bottom: 8px; }
+  .contact-form .lead { color: var(--text-secondary); margin-bottom: 32px; font-size: 15px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .contact-form .submit-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .contact-form .sla {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .contact-aside h2 { font-size: 28px; margin-bottom: 8px; }
+  .contact-aside .lead { color: var(--text-secondary); margin-bottom: 32px; font-size: 15px; }
+  .channel-list { margin-bottom: 32px; }
+  .channel {
+    display: block;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--text-primary);
+    transition: padding 200ms ease-out;
+  }
+  .channel:hover {
+    padding-left: 8px;
+    color: var(--primary-azure);
+  }
+  .channel-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .channel-value {
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .channel-meta {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+  .sla-band {
+    background: var(--surface-soft);
+    border-left: 3px solid var(--accent-cyan);
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+  }
+  .sla-band h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-cyan);
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .sla-band p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .success-msg {
+    display: none;
+    padding: 12px 16px;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 4px;
+    color: #047857;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .success-msg.show { display: block; }
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="wordmark"><span class="r">R</span>ightek</a>
+  <div class="nav-links">
+    <a href="services.html">Services</a>
+    <a href="cases.html">Cases</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active nav-cta">聯絡我們</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="tag">Contact</span>
+    <h1 style="margin-top:24px">聯絡我們</h1>
+    <p class="lead">告訴我們你的產業、需求、現況。我們會在 24 小時內回覆，提供初步方法論建議或安排 30 分鐘諮詢。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="contact-grid">
+
+    <div class="contact-form">
+      <h2>送出需求</h2>
+      <p class="lead">表單送出後，我們會以 Email 回覆。</p>
+      <div class="success-msg" id="success">✓ 感謝你的訊息。我們會在 24 小時內透過 Email 與你聯繫。</div>
+      <form id="contact-form" action="mailto:hello@phyra.uk" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">姓名 *</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">公司</label>
+            <input id="company" name="company" type="text">
+          </div>
+          <div class="form-group">
+            <label for="topic">主要需求</label>
+            <select id="topic" name="topic">
+              <option>Azure AI 整合方案 — 諮詢</option>
+              <option>Azure AI 整合方案 — PoC</option>
+              <option>Azure AI 整合方案 — 完整建置</option>
+              <option>PCB Layout 設計（次線）</option>
+              <option>其他 / 還不確定</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">需求描述 *</label>
+          <textarea id="message" name="message" placeholder="產業、現況、想解決的問題、預算 / 時程概念（如有）" required></textarea>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">送出</button>
+          <span class="sla">↪ 24 小時內 EMAIL 回覆</span>
+        </div>
+      </form>
+    </div>
+
+    <div class="contact-aside">
+      <h2>其他聯絡通道</h2>
+      <p class="lead">如果不方便填表，直接 Email 或 LinkedIn 也可以。</p>
+
+      <div class="channel-list">
+        <a class="channel" href="mailto:hello@phyra.uk">
+          <div class="channel-label">EMAIL</div>
+          <div class="channel-value">hello@phyra.uk</div>
+          <div class="channel-meta">最快通道，工作日 24 小時內回</div>
+        </a>
+        <a class="channel" href="#" onclick="return false">
+          <div class="channel-label">LINKEDIN</div>
+          <div class="channel-value">linkedin.com/in/...</div>
+          <div class="channel-meta">適合先簡短 message 確認方向</div>
+        </a>
+      </div>
+
+      <div class="sla-band">
+        <h4>SLA</h4>
+        <p>工作日 24 小時內 Email 初步回覆。如需簽 NDA 後深入討論，會於回覆時附上 NDA 版本。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="wordmark"><span class="r" style="color:var(--accent-cyan)">R</span>ightek</div>
+      <p>正傑科技 — 半導體 / 製造業的 Microsoft Azure AI 整合夥伴。</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">AI / Azure 整合方案</a></li>
+        <li><a href="services.html#pcb">PCB Layout 設計</a></li>
+        <li><a href="services.html#stack">技術棧</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cases.html">Case Studies</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:hello@phyra.uk">hello@phyra.uk</a></li>
+        <li><a href="#" onclick="return false">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Rightek 正傑科技</span>
+    <span class="mono">Built on Azure stack</span>
+  </div>
+</footer>
+
+</body>
+</html>
